@@ -16,8 +16,8 @@ import javafx.scene.control.Label;
  * Created by nathankaufman on 9/13/19.
  */
 public class loginGUI extends Application {
-    private String Username = "";
-    private String Password = "";
+    private static String Username = "";
+    private static String Password = "";
     private TextField UserIn;
     private Label user;
     private Label pass;
@@ -25,6 +25,7 @@ public class loginGUI extends Application {
     private Button button;
     private HBox hBox;
     private  HBox hBox1;
+    private Stage primaryStage;
     /**
      * The main entry point for all JavaFX applications.
      * The start method is called after the init method has returned,
@@ -42,6 +43,7 @@ public class loginGUI extends Application {
      */
     @Override
     public void start(Stage primaryStage) throws Exception {
+        this.primaryStage = primaryStage;
         VBox vBox = new VBox(hBox, hBox1, button);
         primaryStage.setTitle("Login");
         Scene scene = new Scene(vBox);
@@ -53,15 +55,14 @@ public class loginGUI extends Application {
     public void init() throws Exception{
         UserIn = new TextField();
         PassIn = new PasswordField();
-        PassIn.setText("Password");
         button = new Button();
         button.setText("Login");
         button.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                Username = UserIn.getText();
-                Password = PassIn.getText();
-                System.out.println(getUsername());
+                setUsername(UserIn.getText());
+                setPassword(PassIn.getText());
+                primaryStage.close();
             }
         });
         user = new Label("Username:");
@@ -78,6 +79,14 @@ public class loginGUI extends Application {
 
     protected String getPassword(){
         return Password;
+    }
+
+    private void setUsername(String username){
+        Username = username;
+    }
+
+    private void setPassword(String password){
+        Password = password;
     }
 
     public void startgui() {

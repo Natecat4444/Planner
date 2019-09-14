@@ -38,4 +38,15 @@ public class Database<E> {
         return true;
     }
 
+    protected boolean close(){
+        try{
+            conn.close();
+        }
+        catch (SQLException sqle){
+//            DLException dlException = new DLException(sqle);
+            return false;
+        }
+        return true;
+    }
+
 }
