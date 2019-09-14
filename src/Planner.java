@@ -43,7 +43,7 @@ public class Planner{
         SQLprocessor sqLprocessor = new SQLprocessor();
         ArrayList<String> commands = sqLprocessor.parseSQL("Planner");
         for(int y = 0; y<commands.size(); y++){
-            System.out.println(commands.get(y));
+            database.setDatabase(commands.get(y));
         }
     }
 
@@ -76,6 +76,9 @@ public class Planner{
             System.out.println("Database not found");
             System.out.println("Attempting to create database");
             createDatabase(database);
+            if (LoadDatabase(database)){
+                System.out.println("Database successfully created and loaded");
+            }
         }
 
 
