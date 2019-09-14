@@ -41,7 +41,10 @@ public class Planner{
 
     private static void createDatabase(Database database){
         SQLprocessor sqLprocessor = new SQLprocessor();
-        sqLprocessor.parseSQL("Planner");
+        ArrayList<String> commands = sqLprocessor.parseSQL("Planner");
+        for(int y = 0; y<commands.size(); y++){
+            System.out.println(commands.get(y));
+        }
     }
 
     public static void main(String[] args) {

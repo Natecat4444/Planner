@@ -1,0 +1,29 @@
+DROP DATABASE IF EXISTS Schedule;
+CREATE DATABASE Schedule;
+USE Schedule;
+
+CREATE TABLE ITEMTYPE(
+	Type VARCHAR(25),
+	PRIMARY Key(Type)
+);
+
+CREATE TABLE ITEMSTATUS(
+	iStatus VARCHAR(25),
+	Primary Key(IStatus)
+);
+
+CREATE TABLE Item(
+	ItemID INT NOT NULL AUTO_INCREMENT,
+	ItemName VARCHAR(50) NOT NULL,
+	ItemDescription TEXT,
+	ItemDue DATE NOT NULL,
+	ItemType VARCHAR(25),
+	ItemStatus VARCHAR(25),
+	Primary Key(ItemID),
+	CONSTRAINT VALIDTYPE FOREIGN KEY (ItemType) REFERENCES ITEMTYPE (Type),
+	CONSTRAINT Status_key FOREIGN KEY (ItemStatus) REFERENCES ITEMSTATUS (iStatus)
+);
+
+INSERT INTO ITEMSTATUS VALUES("TODO"), ("URGENT"), ("OVERDUE"), ("DONE");
+
+INSERT INTO ITEMTYPE VALUES("Personal"), ("NONE"), ("Work"), ("Assignment"), ("Project");

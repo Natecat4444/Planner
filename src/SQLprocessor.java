@@ -9,7 +9,7 @@ import java.util.ArrayList;
  */
 public class SQLprocessor {
     public ArrayList<String> parseSQL(String Filename){
-        String filepath = String.format("Database/%s.txt", Filename);
+        String filepath = String.format("Database/%s.sql", Filename);
         File file = new File(filepath);
         if (file.exists()){
             System.out.println("Found source material");
@@ -19,10 +19,35 @@ public class SQLprocessor {
         }
         ArrayList<String> commands = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(file))){
+            String line = reader.readLine();
+            String command = "";
+            while (line != null){
+                if(line.contains(";")){
+                    if (command.equals("")){
+                        command = line;
+                        commands.add(command);
+                        command = "";
+                    }
+                    else {
+                        command = command + line;
+                        commands.add(command);
+                        command = "";
+                    }
+                }
+                else{
+                    if(command.equals("")){
+                        command = line;
+                    }
+                    else {
+                        command = command +line;
+                    }
+                }
 
+                line= reader.readLine();
+            }
         }catch (IOException e){
             System.out.println("Error importing sql");
-            return null;
+            return commands;
         }
         return commands;
     }
