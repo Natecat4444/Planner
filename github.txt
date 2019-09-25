@@ -1,0 +1,47 @@
+commit ece11be0f761a09bad099c5c9addaba334a3ab36
+Author: nathankaufman <nlk7665@rit.edu>
+Date:   Fri Sep 13 23:03:21 2019 -0400
+
+    Starting item class
+
+commit c5127ada9b6d9771cea8932e93773fda2ca091af
+Author: nathankaufman <nlk7665@rit.edu>
+Date:   Fri Sep 13 22:30:16 2019 -0400
+
+    Program can now create a database
+
+commit a3fd0c32edeecf2ec23338840eb371bdbe929cd0
+Author: nathankaufman <nlk7665@rit.edu>
+Date:   Fri Sep 13 22:22:49 2019 -0400
+
+    Can now create an arraylist of sql commands
+
+commit 8a529ce3ff6d611caf0352a3aa4e12e02ea9087f
+Author: nathankaufman <nlk7665@rit.edu>
+Date:   Fri Sep 13 22:03:10 2019 -0400
+
+    Working on sql processor
+
+commit f249879ac0e66234fea7d78deca9750aaa7473d8
+Author: nathankaufman <nlk7665@rit.edu>
+Date:   Fri Sep 13 20:17:52 2019 -0400
+
+    Username and password working
+
+commit 7f7b973edbcd86227c6c620a705ae3b92659da91
+Author: nathankaufman <nlk7665@rit.edu>
+Date:   Fri Sep 13 19:11:57 2019 -0400
+
+    Login gui
+
+commit 470c2b56c31c21c52763e6b1805c1a5eeb8f3ba2
+Author: nathankaufman <nlk7665@rit.edu>
+Date:   Fri Sep 13 14:20:53 2019 -0400
+
+    Database file started
+
+commit 2a6f0daa872a9ac12b1e8b35c360d859e99db7f1
+Author: Natecat4444 <40696932+Natecat4444@users.noreply.github.com>
+Date:   Fri Sep 13 14:14:14 2019 -0400
+
+    Initial commit
