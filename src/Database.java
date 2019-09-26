@@ -11,6 +11,7 @@ public class Database {
     private static String password = null;
     private Connection conn = null;
 
+    //sets static varibles
     public Database(String username, String password){
         uri = "jdbc:mysql://localhost/?autoReconnect=true&useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
         driver = "com.mysql.cj.jdbc.Driver";
