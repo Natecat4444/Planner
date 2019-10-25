@@ -21,6 +21,9 @@ public class Database {
     }
 
     public Database(){
+        String Query = "USE Schedule";
+        connect();
+        setDatabase(Query);
     }
 
     protected boolean connect(){

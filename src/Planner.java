@@ -47,6 +47,14 @@ public class Planner{
         }
     }
 
+    private static void loadStatusandTypes(){
+        ITEMSTATUS itemstatus = new ITEMSTATUS();
+        itemstatus.fetch();
+
+        ITEMTYPE itemtype = new ITEMTYPE();
+        itemtype.fetch();
+    }
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Please enter database login info:");
@@ -80,6 +88,8 @@ public class Planner{
                 System.out.println("Database successfully created and loaded");
             }
         }
+
+
 
 
     }
