@@ -2,65 +2,65 @@
  * Created by nathankaufman on 9/13/19.
  */
 public class Item <E> {
-    private E id;
-    private E name;
-    private E Description;
-    private E Due;
-    private E Type;
-    private E Status;
+    private int id;
+    private String name;
+    private String Description;
+    private String Due;
+    private String Type;
+    private String Status;
 
-    public Item(E name, E Due){
+    public Item(String name, String Due){
         this.name = name;
         this.Due = Due;
-        Type = (E)"Other";
-        Status = (E) "TODO";
+        Type = "Other";
+        Status =  "TODO";
     }
 
-    public E getDescription() {
+    public String getDescription() {
         return Description;
     }
 
-    public E getDue() {
+    public String getDue() {
         return Due;
     }
 
-    public E getId() {
+    public int getId() {
         return id;
     }
 
-    public E getName() {
+    public String getName() {
         return name;
     }
 
-    public E getStatus() {
+    public String getStatus() {
         return Status;
     }
 
-    public E getType() {
+    public String getType() {
         return Type;
     }
 
-    public void setDescription(E description) {
+    public void setDescription(String description) {
         Description = description;
     }
 
-    public void setDue(E due) {
+    public void setDue(String due) {
         Due = due;
     }
 
-    public void setId(E id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public void setName(E name) {
+    public void setName(String name) {
         this.name = name;
     }
 
-    public void setStatus(E status) {
+    public void setStatus(String status) {
         Status = status;
     }
 
-    public void setType(E type) {
+    public void setType(String type) {
         Type = type;
     }
 }
