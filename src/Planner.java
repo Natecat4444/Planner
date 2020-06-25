@@ -9,7 +9,7 @@ public class Planner{
 
         for(int k = 0; k<databases.size(); k++){
             for(int j = 0; j<databases.get(k).size(); j++){
-                if(databases.get(k).get(j).equals("Schedule")){
+                if(databases.get(k).get(j).toLowerCase().equals("schedule")){
                     return true;
                 }
             }
@@ -25,14 +25,17 @@ public class Planner{
         int columnsfound = 0;
         for(int k = 0; k<tables.size(); k++){
             for(int j = 0; j<tables.get(k).size(); j++){
-                if(tables.get(k).get(j).equals("Item")){
+                if(tables.get(k).get(j).toLowerCase().equals("item")){
                     columnsfound++;
                 }
-                if(tables.get(k).get(j).equals("ITEMSTATUS")){
+                else if(tables.get(k).get(j).toLowerCase().equals("itemstatus")){
                     columnsfound++;
                 }
-                if(tables.get(k).get(j).equals("ITEMTYPE")){
+                else if(tables.get(k).get(j).toLowerCase().equals("itemtype")){
                     columnsfound++;
+                }
+                else{
+                    System.out.println("Found "+tables.get(k).get(j));
                 }
             }
         }
@@ -53,6 +56,11 @@ public class Planner{
 
         ITEMTYPE itemtype = new ITEMTYPE();
         itemtype.fetch();
+    }
+
+    private static void startApp(){
+        PlannerGUI gui = new PlannerGUI();
+        gui.startgui();
     }
 
     public static void main(String[] args) {
@@ -86,6 +94,9 @@ public class Planner{
             createDatabase(database);
             if (LoadDatabase(database)){
                 System.out.println("Database successfully created and loaded");
+            }
+            else{
+                System.out.println("Database not created");
             }
         }
 
