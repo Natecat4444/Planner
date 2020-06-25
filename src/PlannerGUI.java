@@ -8,8 +8,8 @@ import javafx.scene.layout.HBox;
 import java.util.ArrayList;
 
 public class PlannerGUI extends Application {
-    Database database;
-    ArrayList<ArrayList<String>> todoItems;
+    DatabaseModerator database;
+    ArrayList<Item> todoItems;
     BorderPane pane;
 
     public PlannerGUI(){
@@ -21,12 +21,12 @@ public class PlannerGUI extends Application {
     }
 
     private void initItems(){
-
+        todoItems = database.getItems();
     }
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        database = new Database();
+        database = new DatabaseModerator();
         todoItems = new ArrayList<>();
         initItems();
         pane = new BorderPane();

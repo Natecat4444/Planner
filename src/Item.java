@@ -63,4 +63,10 @@ public class Item <E> {
     public void setType(String type) {
         Type = type;
     }
+
+    //ToDO
+    public boolean fetch(){
+        String Query = "Select * FROM item WHERE ItemID="+this.id+";";
+        return false;
+    }
 }

@@ -50,13 +50,6 @@ public class Planner{
         }
     }
 
-    private static void loadStatusandTypes(){
-        ITEMSTATUS itemstatus = new ITEMSTATUS();
-        itemstatus.fetch();
-
-        ITEMTYPE itemtype = new ITEMTYPE();
-        itemtype.fetch();
-    }
 
     private static void startApp(){
         PlannerGUI gui = new PlannerGUI();
