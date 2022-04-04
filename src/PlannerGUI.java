@@ -13,7 +13,16 @@ public class PlannerGUI extends Application {
     BorderPane pane;
 
     public void init() throws Exception{
+        database = new DatabaseModerator();
+        todoItems = new ArrayList<>();
+        initItems();
+        pane = new BorderPane();
 
+    }
+
+    public Scene getScene(){
+        Scene scene = new Scene(pane);
+        return scene;
     }
 
     public void startgui(){
@@ -26,12 +35,7 @@ public class PlannerGUI extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        database = new DatabaseModerator();
-        todoItems = new ArrayList<>();
-        initItems();
-        pane = new BorderPane();
-        Scene scene = new Scene(pane);
-        primaryStage.setScene(scene);
+        primaryStage.setScene(getScene());
         primaryStage.show();
     }
 }

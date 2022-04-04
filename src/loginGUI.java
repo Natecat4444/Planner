@@ -70,6 +70,9 @@ public class loginGUI extends Application {
                 setUsername(UserIn.getText());
                 setPassword(PassIn.getText());
                 Planner.handleLogin();
+                //TODO give message if login unsuccessful
+//                primaryStage = GUIManager.getPrimaryStage();
+//                primaryStage.close();
             }
         });
         user = new Label("Username:");

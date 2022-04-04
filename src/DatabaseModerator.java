@@ -6,7 +6,7 @@ public class DatabaseModerator {
     private ITEMTYPE types;
 
     public DatabaseModerator (){
-        Database database = new Database();
+        database = new Database();
         status = new ITEMSTATUS();
         types = new ITEMTYPE();
 

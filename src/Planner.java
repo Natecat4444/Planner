@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Planner{
+    private static GUIManager guiManager;
     private static boolean checkForDatabase(Database database){
         System.out.println("Checking for database...");
         String query = "SHOW DATABASES;";
@@ -72,6 +73,11 @@ public class Planner{
             System.out.println("Database found");
             if(LoadDatabase(database)){
                 System.out.println("Database loaded");
+                try {
+                    guiManager.switchToPlanner();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         }
         else {
@@ -80,6 +86,11 @@ public class Planner{
             createDatabase(database);
             if (LoadDatabase(database)){
                 System.out.println("Database successfully created and loaded");
+                try {
+                    guiManager.switchToPlanner();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
             else{
                 System.out.println("Database not created");
@@ -91,9 +102,8 @@ public class Planner{
         Scanner scanner = new Scanner(System.in);
         System.out.println("Please enter database login info:");
 
-        loginGUI loginGUI1 = new loginGUI();
-
-        loginGUI1.startgui();
+        guiManager = new GUIManager();
+        guiManager.startgui();
 
     }
 }

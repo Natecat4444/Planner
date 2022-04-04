@@ -5,7 +5,7 @@ import javafx.stage.Stage;
  * Created by nathankaufman on 4/4/22.
  */
 public class GUIManager extends Application {
-    private Stage primaryStage;
+    private static Stage primaryStage;
     /**
      * The main entry point for all JavaFX applications.
      * The start method is called after the init method has returned,
@@ -26,6 +26,23 @@ public class GUIManager extends Application {
         this.primaryStage = primaryStage;
         this.primaryStage.setTitle("Login");
         loginGUI loginGUI = new loginGUI();
+        loginGUI.init();
         this.primaryStage.setScene(loginGUI.getScene());
+        this.primaryStage.show();
+    }
+
+    public void switchToPlanner() throws Exception{
+        PlannerGUI plannerGUI = new PlannerGUI();
+        plannerGUI.init();
+        primaryStage.setScene(plannerGUI.getScene());
+        primaryStage.show();
+    }
+
+    public void startgui(){
+        Application.launch();
+    }
+
+    public static Stage getPrimaryStage() {
+        return primaryStage;
     }
 }
