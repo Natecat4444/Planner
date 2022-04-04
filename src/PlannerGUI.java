@@ -12,7 +12,7 @@ public class PlannerGUI extends Application {
     ArrayList<Item> todoItems;
     BorderPane pane;
 
-    public PlannerGUI(){
+    public void init() throws Exception{
 
     }
 

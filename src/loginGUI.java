@@ -52,6 +52,13 @@ public class loginGUI extends Application {
 
     }
 
+    public Scene getScene(){
+        VBox vBox = new VBox(hBox, hBox1, button);
+//        primaryStage.setTitle("Login");
+        Scene scene = new Scene(vBox);
+        return scene;
+    }
+
     public void init() throws Exception{
         UserIn = new TextField();
         PassIn = new PasswordField();
@@ -62,7 +69,7 @@ public class loginGUI extends Application {
             public void handle(MouseEvent event) {
                 setUsername(UserIn.getText());
                 setPassword(PassIn.getText());
-                primaryStage.close();
+                Planner.handleLogin();
             }
         });
         user = new Label("Username:");
@@ -73,11 +80,11 @@ public class loginGUI extends Application {
         hBox1 = new HBox(pass, PassIn);
     }
 
-    protected String getUsername(){
+    protected static String getUsername(){
         return Username;
     }
 
-    protected String getPassword(){
+    protected static String getPassword(){
         return Password;
     }
 

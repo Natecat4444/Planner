@@ -56,18 +56,11 @@ public class Planner{
         gui.startgui();
     }
 
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Please enter database login info:");
-
-        loginGUI loginGUI1 = new loginGUI();
-
-        loginGUI1.startgui();
-
+    public static void handleLogin(){
         System.out.println("Done");
 
 
-        Database database = new Database(loginGUI1.getUsername(), loginGUI1.getPassword());
+        Database database = new Database(loginGUI.getUsername(), loginGUI.getPassword());
         if (database.connect()){
             System.out.println("Login successful");
         }
@@ -92,9 +85,15 @@ public class Planner{
                 System.out.println("Database not created");
             }
         }
+    }
 
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Please enter database login info:");
 
+        loginGUI loginGUI1 = new loginGUI();
 
+        loginGUI1.startgui();
 
     }
 }
