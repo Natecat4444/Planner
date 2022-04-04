@@ -1,9 +1,14 @@
 import javafx.application.Application;
+import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.layout.HBox;
+import javafx.scene.input.MouseEvent;
+import javafx.event.EventHandler;
+
+
 
 import java.util.ArrayList;
 
@@ -17,7 +22,29 @@ public class PlannerGUI extends Application {
         todoItems = new ArrayList<>();
         initItems();
         pane = new BorderPane();
+        pane.setTop(menu());
 
+    }
+
+    public HBox menu(){
+        Button viewItems = new Button();
+        viewItems.setText("View Items");
+        viewItems.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                //TODO
+            }
+        });
+
+        Button addItem = new Button();
+        addItem.setText("Add Item");
+        addItem.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+
+            }
+        });
+        return new HBox(viewItems, addItem);
     }
 
     public Scene getScene(){

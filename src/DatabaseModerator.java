@@ -14,15 +14,15 @@ public class DatabaseModerator {
 
     //TODO
     public ArrayList<Item> getItems(){
-        ArrayList<ArrayList<String>> ItemIDs= database.getData("SELECT ItemID FROM item;", 1, false);
+        ArrayList<ArrayList<String>> ItemIDs= database.getData("SELECT * FROM item;", 1, false);
 
-        ArrayList<Integer> ids = new ArrayList<>();
+        ArrayList<Item> Items = new ArrayList<>();
 
         for(int k = 0; k<ItemIDs.size(); k++){
             for(int j = 0; j<ItemIDs.get(k).size(); j++){
 
             }
         }
-        return null;
+        return Items;
     }
 }
