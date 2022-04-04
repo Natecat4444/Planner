@@ -26,6 +26,14 @@ public class PlannerGUI extends Application {
 
     }
 
+    public void showItems(){
+        //TODO
+    }
+
+    public void addItem(){
+        //TODO
+    }
+
     public HBox menu(){
         Button viewItems = new Button();
         viewItems.setText("View Items");
@@ -41,7 +49,7 @@ public class PlannerGUI extends Application {
         addItem.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-
+                //TODO
             }
         });
         return new HBox(viewItems, addItem);
