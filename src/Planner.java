@@ -74,6 +74,8 @@ public class Planner{
             if(LoadDatabase(database)){
                 System.out.println("Database loaded");
                 try {
+                    ITEMSTATUS itemstatus = new ITEMSTATUS();
+                    ITEMTYPE itemtype = new ITEMTYPE();
                     guiManager.switchToPlanner();
                 } catch (Exception e) {
                     e.printStackTrace();

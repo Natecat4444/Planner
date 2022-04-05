@@ -1,7 +1,7 @@
 /**
  * Created by nathankaufman on 9/13/19.
  */
-public class Item <E> {
+public class Item {
     private int id;
     private String name;
     private String Description;

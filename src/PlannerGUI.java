@@ -1,5 +1,6 @@
 import javafx.application.Application;
-import javafx.scene.control.Button;
+import javafx.event.ActionEvent;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
@@ -9,13 +10,19 @@ import javafx.scene.input.MouseEvent;
 import javafx.event.EventHandler;
 
 
-
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class PlannerGUI extends Application {
     DatabaseModerator database;
     ArrayList<Item> todoItems;
     BorderPane pane;
+    TextField nameIn;
+    TextArea descIn;
+    DatePicker datePicker;
+    LocalDate date;
+    ChoiceBox status;
+    ChoiceBox type;
 
     public void init() throws Exception{
         database = new DatabaseModerator();
@@ -26,12 +33,52 @@ public class PlannerGUI extends Application {
 
     }
 
-    public void showItems(){
-        //TODO
+    public VBox showItems(){
+        return new VBox();
     }
 
-    public void addItem(){
-        //TODO
+    public VBox addItem(){
+        nameIn = new TextField();
+        descIn = new TextArea();
+
+        datePicker = new DatePicker();
+        datePicker.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                date = datePicker.getValue();
+            }
+        });
+        status = new ChoiceBox();
+        status.getItems().addAll(ITEMSTATUS.getiStatuses());
+        status.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                //TODO
+            }
+        });
+
+        type = new ChoiceBox();
+        type.getItems().addAll(ITEMTYPE.getTypes());
+        type.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                //TODO
+            }
+        });
+
+        Label nameL = new Label("Item Name:");
+        Label descL = new Label("Description:");
+        Label dateL = new Label("Due Date:");
+        Label statusL = new Label("Status:");
+        Label typeL = new Label("Type:");
+
+        HBox hBox = new HBox(nameL, nameIn);
+        HBox hBox1 = new HBox(typeL, type);
+        HBox hBox2 = new HBox(dateL, datePicker);
+        HBox hBox3 = new HBox(statusL, status);
+        HBox hBox4 = new HBox(descL, descIn);
+
+        return new VBox(hBox, hBox1, hBox2, hBox3, hBox4);
     }
 
     public HBox menu(){
@@ -40,7 +87,7 @@ public class PlannerGUI extends Application {
         viewItems.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                //TODO
+                pane.setCenter(showItems());
             }
         });
 
@@ -49,7 +96,7 @@ public class PlannerGUI extends Application {
         addItem.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                //TODO
+                pane.setCenter(addItem());
             }
         });
         return new HBox(viewItems, addItem);
