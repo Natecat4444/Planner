@@ -66,6 +66,16 @@ public class PlannerGUI extends Application {
             }
         });
 
+        Button submit = new Button();
+        submit.setText("Add Item");
+
+        submit.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                //TODO
+            }
+        });
+
         Label nameL = new Label("Item Name:");
         Label descL = new Label("Description:");
         Label dateL = new Label("Due Date:");
@@ -78,7 +88,7 @@ public class PlannerGUI extends Application {
         HBox hBox3 = new HBox(statusL, status);
         HBox hBox4 = new HBox(descL, descIn);
 
-        return new VBox(hBox, hBox1, hBox2, hBox3, hBox4);
+        return new VBox(hBox, hBox1, hBox2, hBox3, hBox4, submit);
     }
 
     public HBox menu(){

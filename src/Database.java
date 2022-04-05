@@ -2,6 +2,7 @@
  * Created by nathankaufman on 9/13/19.
  */
 import java.sql.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Database {
@@ -100,6 +101,23 @@ public class Database {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public int insertItem(String name, LocalDate due, String type, String description, String status){
+        String Query = "INSERT INTO Item(ItemName, ItemDue, ItemDescription, ItemType, ItemStatus ), VALUES(?,?,?,?)";
+        try {
+            PreparedStatement statement = conn.prepareStatement(Query);
+            statement.setString(1, name);
+            Date date = Date.valueOf(due);
+            statement.setDate(2, date);
+            statement.setString(3, description);
+            statement.setString(4, type);
+            statement.setString(5, status);
+            return statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
     }
 
 }

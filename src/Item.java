@@ -1,3 +1,5 @@
+import java.time.LocalDate;
+
 /**
  * Created by nathankaufman on 9/13/19.
  */
@@ -5,11 +7,11 @@ public class Item {
     private int id;
     private String name;
     private String Description;
-    private String Due;
+    private LocalDate Due;
     private String Type;
     private String Status;
 
-    public Item(String name, String Due){
+    public Item(String name, LocalDate Due){
         this.name = name;
         this.Due = Due;
         Type = "Other";
@@ -20,7 +22,7 @@ public class Item {
         return Description;
     }
 
-    public String getDue() {
+    public LocalDate getDue() {
         return Due;
     }
 
@@ -44,7 +46,7 @@ public class Item {
         Description = description;
     }
 
-    public void setDue(String due) {
+    public void setDue(LocalDate due) {
         Due = due;
     }
 
@@ -68,5 +70,11 @@ public class Item {
     public boolean fetch(){
         String Query = "Select * FROM item WHERE ItemID="+this.id+";";
         return false;
+    }
+
+    //TODO
+    public int insert(){
+        String Query = "INSERT INTO Item(ItemName, ItemDue, ItemDescription, ItemType, ItemStatus ), VALUES(?,?,?,?)";
+        return 0;
     }
 }
