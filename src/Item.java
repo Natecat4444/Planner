@@ -1,4 +1,5 @@
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 /**
  * Created by nathankaufman on 9/13/19.
@@ -16,6 +17,24 @@ public class Item {
         this.Due = Due;
         Type = "Other";
         Status =  "TODO";
+    }
+
+    public Item (int id,String name, String description, LocalDate due, String type, String status){
+        this.id = id;
+        this.name = name;
+        Description = description;
+        Due = due;
+        Type = type;
+        Status = status;
+    }
+
+    public Item(String name, String description, LocalDate due, String type, String status){
+        this.name = name;
+        Description = description;
+        Due = due;
+        Type = type;
+        Status = status;
+        insert();
     }
 
     public String getDescription() {
@@ -69,12 +88,18 @@ public class Item {
     //ToDO
     public boolean fetch(){
         String Query = "Select * FROM item WHERE ItemID="+this.id+";";
+        Database database = new Database();
+        ArrayList<ArrayList<String>> item = database.getData(Query, 5, false);
+        database.close();
+        System.out.println(item);
         return false;
     }
 
-    //TODO
+
     public int insert(){
-        String Query = "INSERT INTO Item(ItemName, ItemDue, ItemDescription, ItemType, ItemStatus ), VALUES(?,?,?,?)";
-        return 0;
+        Database database = new Database();
+        int success =  database.insertItem(name, Due, Type, Description, Status);
+        database.close();
+        return success;
     }
 }

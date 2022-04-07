@@ -76,6 +76,8 @@ public class Planner{
                 try {
                     ITEMSTATUS itemstatus = new ITEMSTATUS();
                     ITEMTYPE itemtype = new ITEMTYPE();
+                    ItemManager itemManager = new ItemManager();
+                    itemManager.init();
                     guiManager.switchToPlanner();
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -89,6 +91,8 @@ public class Planner{
             if (LoadDatabase(database)){
                 System.out.println("Database successfully created and loaded");
                 try {
+                    ItemManager itemManager = new ItemManager();
+                    itemManager.init();
                     guiManager.switchToPlanner();
                 } catch (Exception e) {
                     e.printStackTrace();
