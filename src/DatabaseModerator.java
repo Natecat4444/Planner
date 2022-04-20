@@ -1,3 +1,4 @@
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class DatabaseModerator {
@@ -24,5 +25,9 @@ public class DatabaseModerator {
             }
         }
         return Items;
+    }
+
+    public int addItem(String name, LocalDate due, String type, String description, String status){
+        return database.insertItem(name, due, type, description, status);
     }
 }
