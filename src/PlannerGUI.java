@@ -23,6 +23,8 @@ public class PlannerGUI extends Application {
     LocalDate date;
     ChoiceBox status;
     ChoiceBox type;
+    String istatus;
+    String itype;
 
     public void init() throws Exception{
         database = new DatabaseModerator();
@@ -53,7 +55,7 @@ public class PlannerGUI extends Application {
         status.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                //TODO
+                istatus = status.getValue().toString();
             }
         });
 
@@ -62,7 +64,7 @@ public class PlannerGUI extends Application {
         type.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                //TODO
+                itype = status.getValue().toString();
             }
         });
 
@@ -73,6 +75,7 @@ public class PlannerGUI extends Application {
             @Override
             public void handle(MouseEvent event) {
                 //TODO
+
             }
         });
 
