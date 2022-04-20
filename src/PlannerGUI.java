@@ -36,10 +36,12 @@ public class PlannerGUI extends Application {
     }
 
     public VBox showItems(){
+        System.out.println("Show items");
         return new VBox();
     }
 
     public VBox addItem(){
+        System.out.println("Add item called");
         nameIn = new TextField();
         descIn = new TextArea();
 
@@ -91,7 +93,9 @@ public class PlannerGUI extends Application {
         HBox hBox3 = new HBox(statusL, status);
         HBox hBox4 = new HBox(descL, descIn);
 
-        return new VBox(hBox, hBox1, hBox2, hBox3, hBox4, submit);
+        VBox addItems = new VBox(hBox, hBox1, hBox2, hBox3, hBox4, submit);
+
+        return addItems;
     }
 
     public HBox menu(){
@@ -109,14 +113,15 @@ public class PlannerGUI extends Application {
         addItem.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                pane.setCenter(addItem());
+                VBox addItem = addItem();
+                pane.setCenter(addItem);
             }
         });
         return new HBox(viewItems, addItem);
     }
 
     public Scene getScene(){
-        Scene scene = new Scene(pane);
+        Scene scene = new Scene(pane, 950, 500);
         return scene;
     }
 
