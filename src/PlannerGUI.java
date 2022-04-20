@@ -53,6 +53,7 @@ public class PlannerGUI extends Application {
             }
         });
         status = new ChoiceBox();
+        System.out.println(ITEMSTATUS.getiStatuses());
         status.getItems().addAll(ITEMSTATUS.getiStatuses());
         status.setOnAction(new EventHandler<ActionEvent>() {
             @Override

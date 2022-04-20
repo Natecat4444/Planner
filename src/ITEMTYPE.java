@@ -4,14 +4,15 @@ import java.util.ArrayList;
  * Created by nathankaufman on 10/25/19.
  */
 public class ITEMTYPE {
-    private static ArrayList<String> Types = new ArrayList<>();
+    private static ArrayList<String> Types;
 
     public ITEMTYPE(){
         fetch();
     }
 
     private boolean fetch(){
-        String query = "SELECT * FROM ITEMSTATUS;";
+        Types = new ArrayList<>();
+        String query = "SELECT * FROM ITEMTYPE;";
         Database database = new Database();
         ArrayList<ArrayList<String>> results = database.getData(query, 1, false);
         for(int y = 0; y<results.size(); y++){
