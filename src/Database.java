@@ -104,7 +104,7 @@ public class Database {
     }
 
     public int insertItem(String name, LocalDate due, String type, String description, String status){
-        String Query = "INSERT INTO Item(ItemName, ItemDue, ItemDescription, ItemType, ItemStatus ), VALUES(?,?,?,?)";
+        String Query = "INSERT INTO Item(ItemName, ItemDue, ItemDescription, ItemType, ItemStatus ) VALUES(?,?,?,?,?);";
         try {
             PreparedStatement statement = conn.prepareStatement(Query);
             statement.setString(1, name);

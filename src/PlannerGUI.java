@@ -67,7 +67,7 @@ public class PlannerGUI extends Application {
         type.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                itype = status.getValue().toString();
+                itype = type.getValue().toString();
             }
         });
 
@@ -77,7 +77,9 @@ public class PlannerGUI extends Application {
         submit.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                //TODO
+                String name = nameIn.getText();
+                String desc = descIn.getText();
+                database.addItem(name, date, itype, desc, istatus);
 
             }
         });
