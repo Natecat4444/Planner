@@ -37,6 +37,7 @@ public class PlannerGUI extends Application {
 
     public VBox showItems(){
         System.out.println("Show items");
+        ArrayList<Item> items = database.getItems();
         return new VBox();
     }
 
@@ -79,7 +80,17 @@ public class PlannerGUI extends Application {
             public void handle(MouseEvent event) {
                 String name = nameIn.getText();
                 String desc = descIn.getText();
-                database.addItem(name, date, itype, desc, istatus);
+                int success = database.addItem(name, date, itype, desc, istatus);
+
+                if(success == 1){
+                    System.out.println("Item added");
+                    Label label = new Label("Item added");
+                    pane.setBottom(label);
+                } else {
+                    System.out.println("Failed to add item");
+                    Label label = new Label("Failed to add item");
+                    pane.setBottom(label);
+                }
 
             }
         });
