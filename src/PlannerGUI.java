@@ -38,6 +38,7 @@ public class PlannerGUI extends Application {
     public VBox showItems(){
         System.out.println("Show items");
         ArrayList<Item> items = database.getItems();
+        System.out.println(items.size());
         return new VBox();
     }
 
